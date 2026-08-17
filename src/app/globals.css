@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #FDF8F6;
+    --bg-card: #FFFFFF;
+    --bg-accent: #F9ECE9;
+    --text-main: #231617;
+    --text-muted: #7A5C60;
+    --text-pink: #C46D74;
+    --brand-pink: #C46D74;
+    --brand-dark-pink: #9E4950;
+    --brand-soft-pink: #F7E4E6;
+    --border-light: #F0DCDD;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-serif-heading {
+    font-family: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+}
+
+@theme {
+  --color-pink-bg: #FDF8F6;
+  --color-pink-light: #F9ECE9;
+  --color-pink-border: #F0DCDD;
+  --color-pink-dark: #231617;
+  --color-pink-accent: #C46D74;
+  --color-pink-deep: #9E4950;
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(240, 220, 221, 0.7);
+}
+
+.glass-nav {
+  background: rgba(253, 248, 246, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(240, 220, 221, 0.6);
+}
+
+.badge-available {
+  background-color: #FDF2F4;
+  color: #C46D74;
+  border: 1px solid #F5C6CA;
+}
+
+.badge-reserved {
+  background-color: #FFF8E1;
+  color: #B78103;
+  border: 1px solid #FFE082;
+}
+
+.badge-coming-soon {
+  background-color: #F0F4FF;
+  color: #3B66C4;
+  border: 1px solid #B8CEFB;
+}
+
+.badge-adopted {
+  background-color: #F3F4F6;
+  color: #4B5563;
+  border: 1px solid #E5E7EB;
+}
+
+/* Keyframe for horizontal slide animation */
+@keyframes slide-right-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
