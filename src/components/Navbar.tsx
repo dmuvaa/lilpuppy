@@ -28,7 +28,6 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
     { href: "/litters", label: "Litters" },
     { href: "/about", label: "About Us" },
     { href: "/kennel", label: "Our Nursery" },
-    { href: "/puppy-info", label: "Puppy Info & FAQ" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -78,7 +77,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3.5 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
+                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
                     isActive
                       ? "bg-[#F7E4E6] text-[#C46D74] font-semibold"
                       : "text-[#231617] hover:text-[#C46D74] hover:bg-[#F9ECE9]/60"

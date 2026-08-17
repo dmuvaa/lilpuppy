@@ -61,7 +61,7 @@ export default function Hero({ onOpenInquiry }: HeroProps) {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#1A0D0E] h-[82vh] min-h-[540px] max-h-[760px]">
+    <section className="relative w-full overflow-hidden bg-[#1A0D0E] h-[82vh] min-h-[550px] max-h-[780px]">
       
       {/* Slides Container - Horizontal Right-To-Left Sliding */}
       <div
@@ -78,14 +78,57 @@ export default function Hero({ onOpenInquiry }: HeroProps) {
               priority={idx === 0}
               className="object-cover object-center"
             />
-            {/* Dark Gradient Overlay for legibility */}
+            {/* Gradient Overlay for legibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10"></div>
           </div>
         ))}
       </div>
 
-      {/* Top Right Scroller Controls (No Collision with buttons or text) */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-30 flex items-center gap-2 bg-[#C46D74]/95 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/30 shadow-xl backdrop-blur-md">
+      {/* BARE TEXT OVER THE BOTTOM PORTION (Left Aligned) */}
+      <div className="absolute inset-x-0 bottom-0 z-20 pb-20 sm:pb-12 pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-xl sm:max-w-2xl space-y-3 sm:space-y-4 text-white">
+            
+            {/* Slide Badge */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C46D74] text-white text-[11px] sm:text-xs font-semibold uppercase tracking-wider shadow-sm">
+              <Sparkles className="w-3 h-3 text-white" />
+              <span>{slides[currentSlide].badge}</span>
+            </div>
+
+            {/* Main Bare Headline */}
+            <h1 className="font-serif text-2xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight sm:leading-[1.12] drop-shadow-md">
+              {slides[currentSlide].title}
+            </h1>
+
+            {/* Subtitle Bare Text */}
+            <p className="text-xs sm:text-base text-stone-200 leading-relaxed font-normal max-w-xl drop-shadow-sm line-clamp-2 sm:line-clamp-none">
+              {slides[currentSlide].subtitle}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 pt-1 sm:pt-2">
+              <Link
+                href="/puppies"
+                className="bg-[#C46D74] hover:bg-[#9E4950] text-white px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm tracking-wide uppercase shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group active:scale-95 text-center"
+              >
+                <span>View Available Puppies</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                href="/about"
+                className="bg-white/90 hover:bg-white text-[#231617] px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 shadow-md text-center"
+              >
+                <span>Meet Jameshia & Co.</span>
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* BOTTOM RIGHT Scroller Controls Pill */}
+      <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 z-30 flex items-center gap-2 sm:gap-3 bg-[#C46D74]/95 text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/30 shadow-xl backdrop-blur-md">
         <button
           onClick={handlePrev}
           className="p-1 hover:text-[#231617] transition-colors"
@@ -122,49 +165,6 @@ export default function Hero({ onOpenInquiry }: HeroProps) {
         >
           {isPlaying ? <Pause className="w-3.5 h-3.5 text-white" /> : <Play className="w-3.5 h-3.5 text-white" />}
         </button>
-      </div>
-
-      {/* BARE TEXT OVER THE BOTTOM PORTION (Cleanly formatted on mobile and desktop) */}
-      <div className="absolute inset-x-0 bottom-0 z-20 pb-6 sm:pb-12 pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl space-y-3 sm:space-y-4 text-white">
-            
-            {/* Slide Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C46D74] text-white text-[11px] sm:text-xs font-semibold uppercase tracking-wider shadow-sm">
-              <Sparkles className="w-3 h-3 text-white" />
-              <span>{slides[currentSlide].badge}</span>
-            </div>
-
-            {/* Main Bare Headline */}
-            <h1 className="font-serif text-2xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight sm:leading-[1.12] drop-shadow-md">
-              {slides[currentSlide].title}
-            </h1>
-
-            {/* Subtitle Bare Text */}
-            <p className="text-xs sm:text-base text-stone-200 leading-relaxed font-normal max-w-xl drop-shadow-sm line-clamp-2 sm:line-clamp-none">
-              {slides[currentSlide].subtitle}
-            </p>
-
-            {/* Action Buttons (Stacked neatly on mobile) */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 pt-1 sm:pt-2">
-              <Link
-                href="/puppies"
-                className="bg-[#C46D74] hover:bg-[#9E4950] text-white px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm tracking-wide uppercase shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group active:scale-95 text-center"
-              >
-                <span>View Available Puppies</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link
-                href="/about"
-                className="bg-white/90 hover:bg-white text-[#231617] px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-medium text-xs sm:text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 shadow-md text-center"
-              >
-                <span>Meet Jameshia & Co.</span>
-              </Link>
-            </div>
-
-          </div>
-        </div>
       </div>
 
     </section>
